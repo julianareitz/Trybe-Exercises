@@ -1,0 +1,48 @@
+    body {
+        background-color: #0F0B15;
+        font-size: 16px;
+    }
+
+    h1 {
+            font-size:65px;
+            color: orange;
+            font-family: sans-serif;
+            font-weight: 600;
+            text-align: center;
+        }
+
+    P {
+        font-size:3em;
+        font-family: monospace;
+        font-weight: 800;
+        text-align: center;
+    }   
+
+    ul {
+        list-style-type: none;
+        font-size: 2em;
+        font-family: sans-serif;
+        text-align: center;
+    }
+
+    li {
+        font-weight: bolder;
+    }
+
+    .backgoundies {
+        background: #5271FF;
+
+    }
+
+    .colorYellow {
+        color: #D4D178;
+    }
+
+    .colorRed {
+        color: #C64B4F;
+    }
+
+    .colorGreen {
+        color: #7ED492;
+    }
+

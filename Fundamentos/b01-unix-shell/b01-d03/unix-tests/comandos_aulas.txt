@@ -1,0 +1,119 @@
+ 2303  terminal
+ 2304  clear
+ 2305  ls
+ 2306  ls -l --flie-type *.txt
+ 2307  ls -l --file-type *.txt
+ 2308  ls -l
+ 2309  ls -a --file-type *.txt
+ 2310  ls -la
+ 2311  ls -a *tan*
+ 2312  clear
+ 2313  ls
+ 2314  pwd
+ 2315  ls
+ 2316  ls -l
+ 2317  ls -a
+ 2318  ls -al
+ 2319  clear
+ 2320  ls
+ 2321  cd Atanes
+ 2322  pwd
+ 2323  cd ..
+ 2324  cd Aulas
+ 2325  mkdir unix_tets
+ 2326  ls
+ 2327  touch trybe.txt
+ 2328  ls
+ 2329  cp trybe.txt trybe_backup.txt
+ 2330  ls
+ 2331  mv trybe.txt trybe-henrique.txt
+ 2332  ls
+ 2333  mkdir backup
+ 2334  ls
+ 2335  mv trybe_backup.txt backup
+ 2336  ls
+ 2337  clear
+ 2338  ls
+ 2339  cd backup
+ 2340  ls
+ 2341  cd ..
+ 2342  cd unix_tets
+ 2343  mkdir backup2
+ 2344  ls
+ 2345  cd backup2
+ 2346  cd ..
+ 2347  ls
+ 2348  cd unix_tets
+ 2349  cd backup2
+ 2350  cd ../../backup
+ 2351  ls
+ 2352  mv trybe_backup.txt ../unix_tets/backup2
+ 2353  cd ../unix_tets/backup2
+ 2354  ls
+ 2355  cd ../../../Aulas
+ 2356  ls
+ 2357  rmdir backup
+ 2358  rmdir unix_tests
+ 2359  rm -rf unix_tests
+ 2360  ls
+ 2361  clear
+ 2362  ls
+ 2363  pwd
+ 2364  mv unix_tets unix_tests
+ 2365  ls
+ 2366  cd unix_tests
+ 2367  ls
+ 2368  mv backup2 backup
+ 2369  ls
+ 2370  pwd
+ 2371  clear
+ 2372  rmdir backup
+ 2373  rm -rf backup
+ 2374  ls
+ 2375  touch skills.txt
+ 2376  ls
+ 2377  cat > skills.txt
+ 2378  cat skills.txt
+ 2379  head -5 skills.txt
+ 2380  head -n 5 skills.txt
+ 2381  clear
+ 2382  tail -4 skills.txt
+ 2383  history
+ 2384  clear
+ 2385  head -n 6 skills.txt
+ 2386  touch dia1.txt
+ 2387  ls
+ 2388  touch dia2.txt
+ 2389  touch dia3.txt
+ 2390  ls
+ 2391  rm *.txt
+ 2392  ls
+ 2393  touch dia3.txt
+ 2394  touch dia2.txt
+ 2395  touch dia1.txt
+ 2396  ls
+ 2397  touch atanes.txt
+ 2398  ls
+ 2399  rm dia?.txt
+ 2400  ls
+ 2401  touch dia1.txt
+ 2402  touch dia2.txt
+ 2403  touch dia3.txt
+ 2404  ls
+ 2405  mv dia3.txt dia33.txt
+ 2406  ls
+ 2407  rm dia?.txt
+ 2408  ls
+ 2409  rm dia*.txt
+ 2410  ls
+ 2411  clear
+ 2412  history
+ 2413  touch ju.txt atanes.txt eder.txt
+ 2414  ls
+ 2415  rm *.txt
+ 2416  ls
+ 2417  cd ..
+ 2418  history | tail -n 1
+ 2419  cd Aulas
+ 2420  ls
+ 2421  echo 2298 - 2417 | bc
