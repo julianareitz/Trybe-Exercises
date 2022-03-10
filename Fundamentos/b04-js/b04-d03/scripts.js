@@ -19,3 +19,5 @@ if (sum > 15) {
 
 
 /*volte aos exercícios do dia anterior, 4.2, e crie um algoritmo para cada.*/
+
+
