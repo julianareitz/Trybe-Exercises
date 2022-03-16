@@ -1,0 +1,110 @@
+<!-- Notas:
+
+parentNode : retorna o nó pai.
+parentElement : retorna o elemento pai.
+childNodes : retorna um NodeList com todos os nós filhos.
+children : retorna um HTMLCollection com todos os elementos filhos.
+firstChild : retorna o primeiro nó filho.
+firstElementChild : retorna o primeiro elemento filho.
+lastChild : retorna o último nó filho.
+lastElementChild : retorna o último elemento filho.
+nextSibling : retorna o próximo nó.
+nextElementSibling : retorna o próximo elemento.
+previousSibling : retorna o nó anterior.
+previousElementSibling : retorna o elemento anterior.
+
+nextSibling !=== nextElementSibling, um pega o próximo nó e o outro o elemento.
+-->
+<!-- arquivo index.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>  
+  <main>
+    <div id="start"></div>
+    nó
+    <p>elemento</p>
+  </main>
+
+  <main id="paiDoPai">
+    <section id="pai">
+      <section id="primeiroFilho"></section>
+      <section id="elementoOndeVoceEsta">
+        <section id="primeiroFilhoDoFilho"></section>
+        <section id="segundoEUltimoFilhoDoFilho"></section>
+      </section>
+      Atenção!
+      <section id="terceiroFilho"></section>
+      <section id="quartoEUltimoFilho"></section>
+    </section>
+  </main>
+  <script src="script.js">
+
+    //no console
+    console.log(document.getElementById('start').nextSibling);//retorna "nó"
+
+    console.log(document.getElementById('start').nextElementSibling); // retorna <p>elemento</p>
+
+    // Acesse o elemento elementoOndeVoceEsta .
+
+    console.log(document.getElementById("elementoOndeVoceEsta").innerHTML);
+
+    // Acesse pai a partir de elementoOndeVoceEsta e adicione uma color a ele.
+
+    console.log(document.getElementById('elementoOndeVoceEsta').parentNode);
+
+    document.getElementById('elementoOndeVoceEsta').parentNode.style.color = "purple";
+
+
+    // Acesse o primeiroFilhoDoFilho e adicione um texto a ele. Você se lembra dos vídeos da aula anterior, como fazer isso?
+
+    document.getElementById('primeiroFilhoDoFilho').innerText = "tarefa do primeiro filho do filho";
+
+    // Acesse o primeiroFilho a partir de pai .
+
+    console.log(document.getElementById('pai').firstChild);
+
+    // Agora acesse o primeiroFilho a partir de elementoOndeVoceEsta .
+
+   document.getElementById('elementoOndeVoceEsta').previousSibling;
+
+
+
+
+
+
+    // Agora acesse o texto Atenção! a partir de elementoOndeVoceEsta.
+    document.querySelector('elementoOndeVoceEsta').nextSibling;
+    document.getElementById('elementoOndeVoceEsta').nextSibling;
+
+    // Agora acesse o terceiroFilho a partir de elementoOndeVoceEsta.
+    document.getElementById('elementoOndeVoceEsta').nextSibling.nextSibling;
+
+    // Agora acesse o terceiroFilho a partir de pai.
+    document.getElementById("pai").lastChild.previousSibling.previousElementSibling;
+
+
+
+
+
+
+    // Crie um irmão para elementoOndeVoceEsta.
+    
+    document.querySelector('pai').createElement(child)
+    
+
+    // Crie um filho para elementoOndeVoceEsta .
+    // Crie um filho para primeiroFilhoDoFilho .
+    // A partir desse filho criado, acesse terceiroFilho .
+
+
+  </script>
+</body>
+</html>
+
