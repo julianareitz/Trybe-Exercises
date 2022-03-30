@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <!-- Cookies!  -->
+
+document.cookie = 'email=isabella@email.com';
+
+<!-- Por definição, o cookie é deletado quando fechamos o navegador. Para que isso não aconteça, você pode adicionar uma data para expiração como no exemplo abaixo: -->
+
+document.cookie = 'email=isabella@email.com; expires=Thu, 17 Dec 2020 12:00:00 UTC';
+
+<!-- Path -->
+document.cookie = 'email=isabella@email.com; expires=Thu, 17 Dec 2020 12:00:00 UTC; path=/';
+
+const myCookie = document.cookie;
+console.log(myCookie) // email=isabella@email.com
+<!-- Change cookie -->
+
+document.cookie = 'email=cleyton@email.com; expires=Thu, 17 Dec 2020 12:00:00 UTC';
+
+<!-- Delet Cookie -->
+
+document.cookie = 'email=; expires=Tue, 01 Dec 2020 12:00:00 UTC;'
+
+
+<h2 class="texto-destaque"></h2>
+
+<section class="card texto-destaque">
+  <!-- Card 1 -->
+</section>
+<section class="card">
+  <!-- Card 2 -->
+</section>
+<section class="card">
+  <!-- Card 3 -->
+</section>
+
+</body>
+</html>

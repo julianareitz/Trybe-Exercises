@@ -1,0 +1,48 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Border-box faz com que mesmo que o content do container seja maior que ele, o container var se adaptando ao tamanho do content, como um flex */
+h1 {
+    font-size: 19px;
+    line-height: 2;
+}
+
+h2 {
+    font-weight:lighter;
+    line-height: 1.5;
+    font-size: 8px;
+}
+
+.header-page {
+    background-color: rgb(246, 247, 248);
+    border: 1px solid rgb(214, 217, 220);
+    border-radius: 3.5px;
+    width: 70%;
+    padding: 50px;
+    margin: 0 auto 5px auto;
+    text-align: center;
+  }
+
+.form-content {
+    background-color: rgb(246, 247, 248);
+    border: 1px solid rgb(214, 217, 220);
+    border-radius: 3.5px;
+    width: 70%;
+    padding: 10px;
+    margin: 0 auto 40px auto;
+    
+}
+
+
+
+
+.line-content {
+   margin: 08px; 
+   border: 0 none;
+}
+
+
