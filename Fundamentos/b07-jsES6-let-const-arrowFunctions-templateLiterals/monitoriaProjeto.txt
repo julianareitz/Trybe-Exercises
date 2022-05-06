@@ -1,0 +1,165 @@
+LER ATENTAMENTE E VÁRIAS VEZES O README
+LER BASTANTE OS BLOCOS DE CÓDIGOS QUE ESTÃO PRONTOS E TENTAR ENTENDER!
+TESTAR SEMPRE NO CONSOLE PRIMEIRO O JS!!!
+USAR ARQUIVO RACUNHO PARA OS TESTES!
+FAZER O TRY CATCH SÓ NO FIM DO CÓDIGO. FAZER TUDO ANTES
+
+Cuidar com aspas
+Const só atribui uma vez, só uma igualdade.
+Não usar o prettier, só o formatador bolinha azul do VSCode. 
+
+Templ
+
+no template literals -> para concatenar diversas variáveis, funções que retornam todos os tipos de coisa. string normal usa aspas simples: padronização do código e pega no lint. Se quiser na string escrever aspas duplas, ele reconhece daí!
+`${variavel} amem `
+
+*No projeto não vai ser mto usado tamplate literals, mas será muito usado no módulo FrontEnd.
+////////////////////
+arrow funtions => simplificação de uma função simples.
+Definições:
+() => {}; // function name (parameters) {}
+retorna um undefined
+o {} define o escopo da função
+
+--------------------------------------
+definir uma função que retorna um objeto:
+function name() {return{}};
+--------------------------------------
+
+retornar um objeto dentro da arrow function
+() => {return {}};
+
+
+--------------------------------------
+se não definir o que a função vai retornar, ela retorna undefined, ou seja, RETORNO IMPLÍCITO
+() => {return {}};
+() => ({}); // objeto de retorno
+
+|| EXPLÍCITO
+() => 'maça'; 
+() => {'maça'}; 
+() => ({type: 'maça'}); // obje~to de retorno
+ 
+--------------------------------------
+
+
+***usar sempre o mesmo padrão de funções
+
+USAR SEMPRE FUNCTION NO INÍCIO PRA EVITAR CONFUSÕES NOS TESTES.
+
+
+////////////////
+OPERADORES TERNÁRIOS: if e else
+
+usar apenas para coisas muito simples
+se não usar if else normal
+Só usar quando for verificar algo simples
+--------------------------------------
+condição ? retorno true : return false;
+let ePar = () => {retorno true, false};
+question ? true : false; // declaração do operador ternário
+const resultado = ePar ? 'sim' : 'não';    
+--------------------------------------
+
+
+//////////////////
+TERNARY OPERATOR
+--------------------------------------
+const trueExpression = (1 + 1 === 2) ? `isso é verdade` : `isso é mentira`; 
+!!!!!!!Não passa no lint!!!!!!!
+com o acento grave foi chamado o template literal sem necessidade.
+--------------------------------------
+--------------------------------------
+CORRETO pro lint
+const trueExpression = (1 + 1 === 2) ? 'isso é verdade' : 'isso é mentira'; 
+single quote - aspas simples
+--------------------------------------
+
+
+///////////////
+FLUXO DE EXCEÇÃO
+
+erro de sintaxe
+Lint corrige erros de sintaxe
+
+
+////////////////
+uncought ReferenceError quando não tem o tryCatch
+Quando esse erro ocorre, ele simplesmente para a execução do código
+
+--------------------------------------
+ESTRUTURA MÍNIMA
+
+try {
+
+} catch() {
+
+} finaly {
+    
+}
+
+Usar, mas não literal ( catch(){} || finaly{} )|| catch(){} && finaly{}
+
+--------------------------------------
+
+try {
+
+} catch(oErroComONomeQueQuiser) {
+
+} finaly {
+    
+}
+
+--------------------------------------
+
+poderia ser
+const erro = trow new Error('Mensagem para o Leite'); 
+
+trow new Error('Mensagem para o Leite'); // É uma classe que retorna um objeto. O new é quando queremos uma nova classe
+Ele lança o erro no console
+O trow lança a excessão e para a execusão do código.
+Para não acontecer, usa bloco try catch
+
+
+function leite () {
+try {
+    trow new Error ('1Erro na execução');
+    trow new Error ('2Erro na execução');
+    trow new Error ('3Erro na execução');
+} catch (oErro) {
+console.log(oErro.message);
+}
+console.log('apenas um log');
+}
+
+function soUmErro () {
+    trow new Error ('Erro na execução');
+}
+
+
+BREAK para só o bloco e TROW para o código
+
+
+Utilizar a função main, a de erro, como sendo a última do código, pois ela irá chamar as outras funções.
+
+
+
+
+////////////// EXPLICAÇÃO PROJETO
+*NÃO CRIAR ARQUIVOS EXTRA
+1) tem que criar a função
+2) Tem que criar no arquivo.inspect.js
+3) tem que criar a função
+4)Tem que criar no arquivo.inspect.js
+***** 10) o texto traz algumas complicações com relação ao entendiento: equecer as informações comentadas e ler apenas o readme do github. Ler os dois é confuso demais.
+
+Comandos mais usados:
+npm test
+npm test tests/average.spec.js || para o arquivo destino
+npm run lint
+
+Entrega final: 13/04/2022 14:00
+
+
+1) Funções a implementar na pasta src
+2) testes na pasta tests

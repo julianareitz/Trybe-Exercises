@@ -1,0 +1,15 @@
+{
+  "name": "b09-d01-JS-Assincrono_e_Callbacks",
+  "version": "1.0.0",
+  "description": "",
+  "main": "9-01_Callbacks.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^28.0.2"
+  }
+}
