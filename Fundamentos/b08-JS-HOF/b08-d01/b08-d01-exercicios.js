@@ -9,6 +9,7 @@ const newEmployees = (generateEmployee) => {
   return employees;
 };
 
+
 const generateEmployee = (fullName) => {
   const email = fullName.toLowerCase().replace(" ", "_");
   return { fullName, email: `${email}@betrybe.com` };
