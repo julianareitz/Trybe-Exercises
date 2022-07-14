@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>TrybeTrip</title>
+</head>
+<header>
+    <div class="header-page">
+        <h1>A Trybe te leva pro destino dos seus sonhos! </h1>
+        <h2>Você batalhou, se esforçou, e agora, depois de um ano de curso, está completamento acabado e merece uma viagem dos sonhos por nossa conta!
+            <br> Nós selecionamos 3 destinos maravilhosos e vamos sortear 5 viagens com destino a um desses paraísos.
+            <br> Os surtudos ficarão 15 dias num resort all inclusive e, claro, a passagem aérea também será por nossa conta! Mas espera, não é só isso! Para você descansar as pernocas desses 12 meses codando dia e noite, quebrando a cabeça madrugada adentro, os sortudos viajarão na primeira classe! 
+            <br> 
+    </div>
+        
+    </h2>
+    <hr>
+</header>
+<main>
+    <form action="" method="get" class="trybe-trip-form">
+            <div class="form-content">
+                <!-- Campo NOME -->
+                <div class="line-content">
+                    <label for="nome">Nome</label>
+                    <input type="text" name="nome" id="nome" placeholder="Nome completo"> 
+                </div>
+                <!-- nascimento  e maior de 18-->
+                <div class="line-content">
+                <label for="nascimento">Nascimento</label>
+                <input type="date" name="nascimento" id="nascimento">
+                <input type="checkbox" name="maior-18" id="maior-18">
+                <label for="maior-18">Tenho 18 anos ou mais</label>
+                </div>
+                <!-- Campo e-mail -->
+                <div class="line-content">
+                    <label for="email">Email</label>
+                    <input type="email" name="email" id="email" placeholder="exemplo@gmail.com"> 
+                </div>
+                <!-- Campo Turma Trybe -->
+                <div class="line-content">
+                    <label for="turma-trybe">Turma</label>
+                    <select name="turma-trybe" id="turma-trybe">
+                        <option value="13">13</option>
+                        <option value="18">18</option>
+                        <option value="19">19</option>
+                        <option value="20">20</option>
+                        <option value="21" selected>21</option>
+                    </select>
+                </div>
+                <!-- Opções -->
+                <div class="line-content">
+                    <fieldset class="Opcoes">
+                        <legend>Escolha a opção</legend>
+                        <input type="radio" name="escolhaAOpcao" id="opcao-1" value="maldivas">
+                        <label for="opcao-1">Maldivas</label>
+
+                        <input type="radio" name="escolhaAOpcao" id="opcao-2" value="pascoa">
+                        <label for="opcao-2">Ilha de Páscoa</label>
+
+                        <input type="radio" name="escolhaAOpcao" id="opcao-3" value="tulum" checked>
+                        <label for="opcao-3">Tulum</label>
+                    </fieldset>
+                    <!-- Resposta da promoção-->
+                    <div class="line-content">
+                        <!-- Pergunta -->
+                        <label for="resposta">Responda o porquê a Trybe deve te levar para o destino dos seus sonhos:</label>
+                    </div>
+                        <!-- Espaço para a resposta -->
+                        <textarea name="resposta" id="resposta" cols="30" rows="10" maxlength="300" placeholder="Até 300 caracteres"></textarea>
+                        <div class="line-content">
+                    <!-- termos e compromissos -->
+                    <div class="line-content">
+                        <!-- estuda Trybe -->
+                        <input type="checkbox" name="estuda-trybe" id="estuda-trybe">
+                        <label for="estuda-trybe">Eu estudo na Trybe</label>
+                    </div>
+                    <div class="line-content">
+                        <!-- concorda termos -->
+                        <input type="checkbox" name="concorda-termo" id="concorda-termo">
+                        <label for="concorda-termo">Eu concordo com os termos da promoção</label>
+                    </div>
+
+                    </div>
+                </div>
+            </form>
+    </div>
+</main>
+<body>
+    <script src="b06-d01-e01.js"></script>
+</body>
+</html>

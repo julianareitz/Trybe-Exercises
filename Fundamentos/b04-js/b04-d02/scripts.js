@@ -15,10 +15,10 @@ console.log(tasksList);
 
 let tasksList = ['Tomar café', 'Reunião', 'Brincar com o cachorro', 'Fazer exercícios da Trybe'];
 
-tasksList.unshift('Brincar com o gato');  // retira uma tarefa
+tasksList.unshift('Brincar com o cachorro');  // retira uma tarefa
 console.log(tasksList);
 
-let tasksList = ['Tomar café', 'Reunião', 'Brincar com o cachorro'];
+let tasksList = ['Tomar café', 'Reunião', 'Fazer exercícios da Trybe'];
 
 
 /*Bacana, já aprendemos a estruturar nosso array, acessar algumas informações e adicionar itens. Espero que esteja animado e se perguntando: "Ok. Agora como faço para remover?" . Simples, veja este exemplo:*/
