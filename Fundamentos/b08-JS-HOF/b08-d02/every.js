@@ -24,7 +24,7 @@ const people = [
   ];
   
   const verifyAges = (arrayQueVaiEntrar, minimumAge) => {
-    return arrayQueVaiEntrar.every((personAge) => personAge === minimumAge);
+    return arrayQueVaiEntrar.every((personAge) => personAge >= minimumAge);
     // return Object.values(arrayQueVaiEntrar).every((personAge) => personAge === minimumAge);
 
   }

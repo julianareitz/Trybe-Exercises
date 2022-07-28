@@ -1,0 +1,29 @@
+Só podemos passar props nem state de pai para filho, nunca entre irmãos.
+Quando se precisa que irmões tenham a mesma informação, deve-se elevar props e state ao ponto mais alto: PROP HEALING.
+
+
+De qualquer forma, é necessário um componente que emcapsula os demais para passar via props.
+Arrow function não precisa de bind.
+
+
+
+Quando o setState for um array, cuidado pra não substituir e sim adicionar a informação ao array com o push ou com o spread: 
+
+addNewProject = (project) => {
+    this.setState((prevState) => ({
+        projects: [...prevState.projects, project],
+    }));
+}
+
+render(){
+    ...
+    return (
+        <>
+        <header />
+        <FormNewProject add={this.addNewProject}/>
+        </>
+
+    )
+}
+
+[...this.state.projects, project].

@@ -17,7 +17,7 @@ console.log(verifyFirstLetter('x', listNames)); // false
 // const verificaSeTemEsseNome = (array, name) => {
 //     return array.some((currentName) => currentName === name);oooooo[
     
-]
+// ]
 // }
 
 // console.log(verificaSeTemEsseNome('Lua', names));
@@ -27,6 +27,6 @@ const colegas = ['Leila', 'Claudir'];
 
 const ehDesseArray = (arr, name) => {return arr.some((currentName) => currentName === name);}
 
-console.log(ehDesseArray(familia, 'Lua'));
-console.log(ehDesseArray(familia, 'Claudir'));
-console.log(ehDesseArray(colegas, 'Claudir'));
+console.log(ehDesseArray(familia, 'Lua')); // true
+console.log(ehDesseArray(familia, 'Claudir')); // false
+console.log(ehDesseArray(colegas, 'Claudir')); // true

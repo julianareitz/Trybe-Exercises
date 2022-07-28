@@ -1,0 +1,52 @@
+Utilizar o componentDidMount para executar uma ação após o Componente ser inserido no DOM;
+Utilizar o shouldComponentUpdate para avaliar se uma atualização do Componente deve ou não acontecer naquele momento;
+Utilizar o componentDidUpdate para executar uma ação após o Componente ser atualizado;
+Utilizar o componentWillUnmount para realizar uma ação antes de o Componente ser desmontado.
+
+React life cycle on DOM:
+Fonte imagem e documentação: https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/
+
+Montagem(no início do ciclo ou entre atualizações): 👶
+constructor
+componentDidMount
+
+Atualização: 👩‍🦱
+render
+shouldComponentUpdate
+render
+
+Desmontagem: 💀
+componentWillUnmount
+
+---------Fluxo de criação de Componentes:
+1 - Construtor: recebe as props e define o this.state;
+2 - Render: renderiza os Componentes no DOM;
+* criação de Componentes filhos diretos
+3 - ComponentDidMount: dispara ações depois de o Componente ser inserido no DOM;
+
+---------Fluxo de atualização de Componentes:
+1 - Atualização:
+    (1)shouldComponentUpdate: 
+        (a) Recebe novas Props e setState
+        (b) Autoriza passar para o render os Componentes(bool);
+        (c) Não autoriza passar para o render os Componentes(bool);
+2 - Montagem:
+    (1)render:
+        (a) Recebe a autorização do ShouldComponentUpdate;
+        (b) Renderiza o Componente autorizado no DOM;
+        (c) Envia as novas props para os Componentes filhos diretos.
+    (2)componentDidUpdate:
+        (a) Dispara as ações após o Componente ser atualizado.
+            * Etapa em que o estado é atualizado. Portanto, aqui que as renderizações devem ser impedidas.
+3 - Desmontagem:
+    (1)componentWillUnmount:
+        (a) Dispara as ações antes de o Componente ser desmontado;
+            * Ideal para limpar timers e listeners.
+            * NÃO UTILIZAR NA DESMONTAGEM: this.setState.
+            * NÃO INICIAR COM timers e listeners.
+
+Outros métodos do React: https://pt-br.reactjs.org/docs/react-component.html#static-getderivedstatefromprops
+
+---------Acessando Props e States subsequentes e anteriores
+1 - shouldComponentUpdate: nextProps e nextState (Processo de atualização que recebe novas Props e setSate e passa autorização ou não para montagem na etapa de renderização)
+2 - componentDidUpdate: prevProps e prevState (Processo de montagem 2/3, logo após a autorização de renderização da etapa de atualização)
