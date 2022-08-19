@@ -1,0 +1,100 @@
+************************************
+*                                  *
+*      RTL - Primeiros passos      *
+*                                  *
+************************************
+
+
+"Você será capaz de:
+(*) Utilizar os seletores (queries) da React-Testing-Library em testes automatizados;
+(*) Simular eventos com a React-Testing-Library em testes automatizados;
+(*) Testar fluxos lógicos assíncronos com a React-Testing-Library;
+(*) Escrever testes que permitam a refatoração da estrutura dos componentes da aplicação sem necessidade de serem alterados."
+Fonte: https://app.betrybe.com/course/front-end/testes-automatizados-com-react-testing-library/rtl-primeiros-passos/4b749a62-3f4a-4fe6-872e-3d2853f089c8/o-que-vamos-aprender/a795312c-ad73-433f-b63b-175bd6e7ee88/voce-sera-capaz-de/1ef3202a-8532-4df5-a4b4-1decf15beef5?use_case=next_button
+
+----------------------------------------------------------------
+Tipos de testes:
+(*) Manual - testar no navegador se está consolando ou renderizando conforme esperado.
+(*) Estático - EsLint
+(*) Unitário - Jest
+(*) Integração - RTL
+(*) Ponta a Ponta (E2E) - Ende to End, Cypress
+
+Vantagens da react test library:
+
+(1) Simplicidade;
+(2) Menos caveats;
+(3) Testa por comportamento e não por implementação;
+(4) Permite refatoração.
+
+----------------------------------------------------------------
+
+Code Coverage mostra:
+
+(*) Blocos de código repetidos ou não acançados (inclusive if/else);
+(*) A quantidade de funções externas chamadas;
+(*) Proporção de linhas executadas;
+
+----------------------------------------------------------------
+
+Usage Code:
+
+(*) Passos de usuários para utilização das funcionalidades do código.
+(*) Casos de sucesso e erro de inserção de dados pelo usuário.
+
+
+
+----------------------------------------------------------------
+CheatSheet:
+
+https://testing-library.com/docs/react-testing-library/cheatsheet/
+----------------------------------------------------------------
+
+/string/ : Uso de regex
+/string/i é utilizado para ignorar case sensitive.
+
+----------------------------------------------------------------
+Os testes devem ser:
+
+- Feitos pensando na acessibilidade da app.
+- Parecidos como a forma de utilização da app pelos usuários.
+----------------------------------------------------------------
+
+              |||ETAPAS DE UM TESTE|||
+              ||    (*) ACESSAR     ||
+              ||    (*) AFERIR      ||
+              ||    (*) AGIR        ||
+              ||||||||||||||||||||||||
+
+|||||||TEST STEPS|||||||    |||||||TEST STEPS|||||||
+||    (*) ARRANGE     ||    ||     (*) GIVEN      ||
+||    (*) ACT         || OR ||     (*) WHEN       ||
+||    (*) ASSERT      ||    ||     (*) THEN       ||
+||||||||||||||||||||||||    ||||||||||||||||||||||||
+
+----------------------------------------------------------------
+
+NO TESTE QUANDO HOUVER:
+
+(*)requisição em API
+(*).setTimeOut
+Usar o: .waitForElementToBeRemoved() p/ mensagem de carregamento
+
+----------------------------------------------------------------
+
+
+Striker mostra a tabela de porcentagem cumprida do teste:
+npx stryker run ./stryker/nomeDoArquivo.conf.json
+npx striker run ./stryker/okemonDetails.conf.json
+/[nome do arquivo].conf.json
+()O projeto está mockado
+()Somente mudar arquivo de teste
+()Ficar do olho no GitHub
+()Serão 3 dias de projeto
+
+Buscar exatamente o que o readme pede: buscar h2 com o texto Ander.
+
+npm run lint
+npm run lint:styles
+
+getByText(‘xablau', { selector: ‘p’ }) 

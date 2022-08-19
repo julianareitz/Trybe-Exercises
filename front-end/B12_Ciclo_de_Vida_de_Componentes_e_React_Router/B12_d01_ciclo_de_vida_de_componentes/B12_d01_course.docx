@@ -1,28 +1,40 @@
+    *************************************************************
+    *                                                           *
+    *  LER: O ciclo de vida de um componente no site do React.  *
+    *                                                           *
+    ************************************************************* 
+
 Utilizar o componentDidMount para executar uma ação após o Componente ser inserido no DOM;
 Utilizar o shouldComponentUpdate para avaliar se uma atualização do Componente deve ou não acontecer naquele momento;
 Utilizar o componentDidUpdate para executar uma ação após o Componente ser atualizado;
 Utilizar o componentWillUnmount para realizar uma ação antes de o Componente ser desmontado.
 
-React life cycle on DOM:
-Fonte imagem e documentação: https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/
-
 Montagem(no início do ciclo ou entre atualizações): 👶
 constructor
-componentDidMount
+render
+***DOM criado
+componentDidMount*****
 
 Atualização: 👩‍🦱
-render
-shouldComponentUpdate
+***componente recebe novas props 
+render - é atualizado novamente
+***DOM recriado
+ComponentDidUpdate - devem ir aqui todas as coisas que devem acontecer quando houver uma atualização de tela (novas propriedades, setState(), forceUpdate())
 render
 
 Desmontagem: 💀
-componentWillUnmount
+componentWillUnmount - quando algo está na tela e deve sumir/esconder/limpar.
 
 ---------Fluxo de criação de Componentes:
 1 - Construtor: recebe as props e define o this.state;
+
 2 - Render: renderiza os Componentes no DOM;
 * criação de Componentes filhos diretos
-3 - ComponentDidMount: dispara ações depois de o Componente ser inserido no DOM;
+
+3 - ComponentDidMount:  - Dispara ações depois de o Componente ser inserido no DOM;
+                        - Método para quando quer executar uma ação depois que as coisas apareceram na tela (Lugar para requisições de APIs, trabalhar com fetch, com as promisses)
+
+React life cycle on DOM: /react_lifecycle.png
 
 ---------Fluxo de atualização de Componentes:
 1 - Atualização:
@@ -50,3 +62,69 @@ Outros métodos do React: https://pt-br.reactjs.org/docs/react-component.html#st
 ---------Acessando Props e States subsequentes e anteriores
 1 - shouldComponentUpdate: nextProps e nextState (Processo de atualização que recebe novas Props e setSate e passa autorização ou não para montagem na etapa de renderização)
 2 - componentDidUpdate: prevProps e prevState (Processo de montagem 2/3, logo após a autorização de renderização da etapa de atualização)
+
+
+---------Requisições e componentDidMount:
+
+API que será usada: https://rickandmortyapi.com/api/character
+
+Sempre ler a API para ver se está capturando o elemento correto.
+
+Ao fazer um map, usar key ({ props } para identificador dinâmico) como identificador único para cada elemento.
+
+
+________________________________________________________________________________________________
+Fontes: 
+https://app.betrybe.com/course/front-end/ciclo-de-vida-de-componentes-e-react-router/ciclo-de-vida-de-componentes/36f2a45f-a7c0-4f6f-ae29-119286c4dce9/conteudos/8017672f-19bc-4687-93da-0b546b97513d/renderizacao-condicional-e-atualizacao-de-arrays-no-estado/62c212dd-a0a2-424a-93ad-b7e43d439ce4?use_case=side_bar
+https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/
+https://github.com/wojtekmaj/react-lifecycle-methods-diagram/tree/main/src
+https://pt-br.reactjs.org/
+https://www.youtube.com/watch?v=m_mtV4YaI8c
+https://pt-br.reactjs.org/docs/react-component.html#static-getderivedstatefromprops
+
+
+
+setInterval()
+clearInterval()
+
+
+
+||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+|||                                                                                            |||
+|||RENDERIZAÇÃO CONDICIONAL:                                                                   |||
+|||--------------------------------------------------------------------------------------------|||
+|||                                                                                            |||
+|||Com operador ternário                                                                       |||
+|||                                                                                            |||
+|||render() {                                                                                  |||
+|||    return <>{this.state.loading ? <loading /> : <h1>Loading...</h1>}</>                    |||
+|||}                                                                                           |||
+|||                                                                                            |||
+|||------------------------------------------------------------------------------------------------
+|||                                                                                            |||
+|||Com &&
+|||                                                                                            |||
+|||render() {
+|||    return <>
+|||    {this.state.loading && <loading /> }
+|||    <h1>Loading...</h1>
+|||    </>
+|||                                                                                            |||
+|||}
+||| Se o loading for true, mustra o <loading />.
+||| Mas mostra o que estiver abaixo, no h1, independente da condição.
+|||                                                                                            |||
+|||------------------------------------------------------------------------------------------------
+|||                                                                                            |||
+|||***********Com if***********
+|||                                                                                            |||
+|||render() {
+|||    if (this.state.loading) return <loading />
+|||    return 
+|||        <>
+|||            <h1>Dados Carregados</h1>
+|||        </>                                                                                 |||
+|||                                                                                            |||
+|||}                                                                                           |||
+|||                                                                                            |||
+||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||

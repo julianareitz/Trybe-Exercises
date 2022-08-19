@@ -1,0 +1,68 @@
+REACT ROUTER
+
+%%%%RECAPTULANDO CONHECIMENTOS EM REACT - BLOCOS 11 E 12%%%%
+
+composição de componentes;
+gerenciamento de estado e de ciclo de vida de componentes;
+captura de eventos no contexto de React.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+---------Single Page Application (SPA)
+
+Páginas que funcionam 100% sem precisar de reload.
+
+
+---------{ props.children }
+class App extends Component {
+  render() {
+    return (
+      <div className='main'>
+        <ComponentePai>
+          <p>SUPIMPA</p>
+          <h1>BACANA</h1>
+          <span>INCRÍVEL</span>
+        </ComponentePai>
+      </div>
+    )
+  }
+}
+
+Retorna array dos filhos: [ SUPIMPA, BACANA, INCRÍVEL ]
+
+
+---------Instalação React Router Dom
+
+npm install react-router-dom@v5
+
+
+
+---------Componentes BrowserRouter e Route
+
+
+(1) Browse Router - Emcapsula toda a aplicação para a navegação em SPA
+* exact path - para não renderizar apenas partes do path como em /home e / (melhor fazer em tudo para evitar erros futuros)
+(2) Rout - componente fundamental do React Router: Ele que mostra o caminho da renderização
+
+&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+<Route path="/about" component={About} />
+<Route path="/about/me" component={About} />
+
+Nesse exemplo o React Router renderizaria tanto o
+/about quanto o /about/me no "/about" pois o início
+do path é igual, portanto, um match.
+
+Para acabar com o conflito de informações e parar
+de gerar dupliciddade, podemos usar o:
++++++++++++++++++++++++++++++++++++++++++++++++++++
+&&(a)exact path
+<Route exact path="/about" component={About} />
+<Route path="/about/me" component={About} />
+
++++++++++++++++++++++++++++++++++++++++++++++++++++
+&&(b) { props.chindren } 
+    <Route path="/about" >
+      <About />
+    </Route>
+
+&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
