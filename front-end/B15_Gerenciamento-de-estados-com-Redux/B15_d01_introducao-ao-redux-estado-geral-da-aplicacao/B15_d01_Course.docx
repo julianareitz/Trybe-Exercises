@@ -1,0 +1,57 @@
+
+            *************************************
+            *                                   *
+            *       INTRODUÇÃO AO REDUX         *
+            *   O estado global da Aplicação    *
+            *                                   *
+            *************************************
+
+Algums partes do Redux:
+
+(*) Store: Onde será armazenado os dados compartilhados da App. Tipo: { }
+
+(*) Action: Representa a mudança de estado que deve ocorrer em um componente. Tipo: { }
+
+(*) Reducer: Recebe o current state e a current action retornando um new state. Tipo: { }
+reducer = (state = INITIAL_STATE, action) => {
+     return { 
+        // Se prevState === 'light', return 'dark'.
+        // Else, return 'light'.
+        newSstate }}
+
+(*) store.dispatch(): Importa o store e recebe como parâmetro o objeto da action. Ou seja, dispacha a action para o reducer que vai atualizar o estado. É usado nas transições das camadas de componentes. 
+
+(*) store.getState(): função que recuper o estado armazenado no store.
+
+(*) store.subscribe(): Solicitação feita no componente para a atualização/sobrescrever de/o estado. Aqui dentro que vai o getState().
+
+(*) combineReducers(): combina diferentes arquivos de reduce.
+
+
+|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+||                                                         ||
+||  Não é confgurado o estado inicial.                     ||    
+||  Cria-se uma constanteINITIAL_STATE ={ theme: 'light'}  ||
+||                                                         ||
+|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+
+
+
+        ............................................
+        .                                          .
+        .           Anotações da aula ao vivo      .
+        .                                          .
+        ............................................
+
+Se tivesse um componente "Martelo" ele podia solicitar o acesso atráves do reducer pra atualizar a entrada "isBrokenLamp". Daí ele faz uma escuta através do subscribe que vai sobrescrever o estado no componente que solicitou. 
+Depois a gente vai colocar esses estados globais em um doc separado. 
+
+Dúvidas e respostas boas do Slido da aula ao vivo:
+Link: https://app.sli.do/event/51xJvrCLKTHFXJaLPhXNBG/live/questions
+    (a)"Na verdade a única coisa que o dipatcher faz é entregar a action para o reducer. O Reducer verifica o tipo daquela action que recebeu e partir dela cria o novo estado"
+
+    (b)"Oliva, o store.dispatch passa o type para a função reducer porque criamos a store com a função reducer como parâmetro?"
+    "Exatamente, quando fazemos o dispatch deste store, a função reducer utilizada pra criar ele que será chamada"
+
+    (c)"Quando capturo o botão pelo ligth-switch, já não estou especificando qual botao quero usar?, por que preciso usar o type?, só pra mim entender."
+    "O type na verdade esta atrelado a qual ação esta sendo feita e será utilizado pelo reducer para saber o que fazer com o estado. Por exemplo, se o type for como o Oliva disse, quebrar a lâmpada, o reducer deve ter um comportamento diferente de mudar o tema. Faz sentido?"

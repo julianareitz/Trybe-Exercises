@@ -183,15 +183,22 @@ const estudantes = [
   ];
 // SOLUÇÃO
 // primeiro retorna a matéria de maio nota
-const getBestClass = (acc, materia) => {
-    if (acc.nota > materia.nota) return acc;
-    return materia;
-  };
-//   depois monta o objeto de retorno chamamdo sem a necessidade do for
-  const reportBetter = (students) => students.map((student) => ({
-    name: student.nome,
-    materia: student.materias.reduce(getBestClass).name}));
+// const getBestClass = (acc, materia) => {
+//     if (acc.nota > materia.nota) return acc;
+//     return materia;
+//   };
+// //   depois monta o objeto de retorno chamamdo sem a necessidade do for
+//   const reportBetter = (students) => students.map((student) => ({
+//     name: student.nome,
+//     materia: student.materias.reduce(getBestClass).name}));
   
-  console.log(reportBetter(estudantes));
+  // console.log(reportBetter(estudantes));
 
+  // OUTRA FORMA PARA A SOLUÇÃO
 
+const report = estudantes.map((estudante) => ({ 
+  name: estudante.nome,
+  materia: estudante.materias
+      .reduce((acc, materia) => acc.nota > materia.nota ? acc : materia).name,
+}));
+console.log(report);

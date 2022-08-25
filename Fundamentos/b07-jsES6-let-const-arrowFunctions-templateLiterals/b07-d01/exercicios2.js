@@ -16,14 +16,11 @@ console.log(factorial(1));
 
 //  2 - Crie uma função que receba uma frase e retorne qual a maior palavra.
 
-const longestWord = (array) => 
-
-
-function longestWord (phrase) {
-    let splited = phrase.split(" ");
-    return splited;
-}
-console.log(longestWord('Uma bela manhã.'));
+// function longestWord (phrase) {
+//     let splited = phrase.split(" ");
+//     return splited;
+// }
+// console.log(longestWord('Uma bela manhã.'));
 
 // Course
 const longestWord = text => {
@@ -45,6 +42,6 @@ console.log(longestWord("Antonio foi no banheiro e não sabemos o que aconteceu"
 
 
 // O QUE É ESSE INDEX 0 NO FINAL??
-const longestWord = text => text.split(' ').sort((wordA, wordB) => wordB.length - wordA.length)[0];
+// const longestWord = text => text.split(' ').sort((wordA, wordB) => wordB.length - wordA.length)[0];
 
 console.log(longestWord("Antonio foi no banheiro e não sabemos o que aconteceu"));
