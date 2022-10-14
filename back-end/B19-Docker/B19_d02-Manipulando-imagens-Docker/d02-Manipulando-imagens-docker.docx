@@ -1,0 +1,128 @@
+                                        *************************************
+                                        *                                   *
+                                        *      MANIPULANDO IMAGENS          *
+                                        *              DOCKER               *
+                                        *                                   *
+                                        *************************************
+
+
+*****************************************************************************************************************************
+*                                                                                                                           *
+*                                               PREVIOUS ON B19 D01                                                         *
+*               Image                                      X               Container                                        *
+*       (*) Immutable file                                      (*) Isolated Linux process                                  *
+*       (*) Archieve to create containers                       (*) Based on a Docker Image                                 *
+*       (*) ~docker build                                       (*) When the image is not finded, it'll be creates locally  *
+*       (*) Dockerfile: recipe                                                                                              *
+*                                                                                                                           *
+*****************************************************************************************************************************
+
+
+ADD AND REMOVE IMAGES
+
+Clear all containers and images at computer
+~docker system prune -af
+
+Add an image without executing it
+~docker pull image-name
+
+Dock Images: List
+~docker images
+
+Docker Image: Run image not found locally
+~docker run hello-world // it works like pull command, searching for at DockerHub atomatically
+
+Docker list: active or innactive
+~docker ps -a
+
+Docker remove
+~docker rm -f container-name
+~docker rm -f container-id
+
+Docker remove image
+~docker rmi -f container-id
+
+
+CREATING DOC IMAGES
+
+Printing message when executes a especific container
+~FROM alpine:3.14
+~CMD ["echo", "Eu sou uma pessoa estudante da Trybe!"]
+
+
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+            ||                                                                                  ||
+            ||                                   NOTATIONS                                      ||
+            ||                                                                                  ||
+            ||                      1 Image - many containers                                   ||
+            ||                                                                                  ||
+            ||                                                                                  ||
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+
+
+
+            COMMAND CHEATSHEET
+~docker create
+~docker rename
+~docker run
+~docker rm
+~dockerupdate
+~docker pull
+~docker stop
+~docker ps (*)
+~docker exec(**)
+~docker image(***)
+~docker load
+~docker save
+
+(*)~docker ps
+-all, -a
+-filter, -f
+-format
+-last, -n-1
+-latest, -l
+-no-trunc
+-quiet, -q
+
+(**)~docker exec
+-detach, -d
+-detachkeys
+-interactive, -i
+-privileged
+-user, -u
+-tty, -t
+
+(***)~docker image
+build
+history
+import
+inspect
+load
+rm
+save
+tag
+
+DOCKER START & STOP
+~docker start
+~docker stop
+~docker restart
+~docker unpause
+~docker wait
+~docker kill
+~docker attach
+
+DOCKER INFO
+~docker ps
+~docker logs
+~docker inspect
+~docker events
+~docker port
+~docker top
+~docker stats
+~docker diff
+
+DOCKER IMPORT/EXPORT
+~docker cp
+~docker export
+
+sudo /etc/init.d/docker start
