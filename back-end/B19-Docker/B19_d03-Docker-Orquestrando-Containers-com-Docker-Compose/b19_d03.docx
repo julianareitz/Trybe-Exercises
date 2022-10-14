@@ -1,0 +1,69 @@
+                                        *************************************
+                                        *                                   *
+                                        *          DOCKER COMPOSE           *
+                                        *                                   *
+                                        *************************************
+
+
+*****************************************************************************************************************************
+*                                                                                                                           *
+*                                               PREVIOUS ON B19 D01 & D02                                                         *
+*               Image                                      X               Container                                        *
+*       (*) Immutable file                                      (*) Isolated Linux process                                  *
+*       (*) Archieve to create containers                       (*) Based on a Docker Image                                 *
+*       (*) ~docker build                                       (*) When the image is not finded, it'll be creates locally  *
+*       (*) Dockerfile: recipe                                                                                              *
+* One image can be the father of many containers                                                                            *
+*****************************************************************************************************************************
+
+
+
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+            ||                                                                                  ||
+            ||                                  KEY CONCEPTS                                    ||
+            ||                                                                                  ||
+            ||Imagem: Aplicação empacotada                                                      ||
+            ||Container: processo que representa a execução de uma imagem já construída         ||
+            ||Registry: Biblioteca de imagens Docker                                            ||
+            ||Dockerfile: Recipe for Docker Images: What and the order of Containers execution  ||
+            ||Network: comunication between front, back, API, data base....                     ||
+            ||Volumes: Docker Components that preserves files in Containers                     ||
+            ||         even the process is finished                                             ||
+            ||                                                                                  ||
+            ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+
+            Boas práticas: docker-compose.yaml
+            
+Organiza ambientes com várias linguagens de programação
+
+
+~docker run -itd --name container1 busybox
+~docker run -itd --name container2 busybox
+
+~docker rm -f $()
+
+sh - shell masi básico do Linux que tem em todas as distribuições. O bash não
+~docker exec -it container1 sh
+
+AULA
+~docker create -it node16:alpine
+~docker ps -a
+~docker start ID-ou-NAME
+~docker attach ID-ou-NAME (abre o terminal do container)
+~(ctrl + p ctrl + q) --> Para sair sem encerrar o processo
+
+AUTOCOMPLETE DO BASH ATIVAR
+
+
+mais fácil assim:
+~docker run -it node:16-alpine
+
+Mais fácil sem entrar no terminal:
+~docker run -itd node:16-alpine
+~docker run -itd node:13.2-alpine
+
+Instalado, agora abrimos outro terminal para executar um container
+~exec ID-ou-NAME sh
+
+    attach                  X             exec
+execução principal              executa outras coisas
