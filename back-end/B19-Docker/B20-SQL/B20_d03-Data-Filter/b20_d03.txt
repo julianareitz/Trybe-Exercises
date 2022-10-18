@@ -1,0 +1,61 @@
+OPERATORS PRIORITY
+
+(1) parentheses
+(2) multiplication, division
+(3) subtraction, addition
+(4) not
+(5) AND
+(6) OR
+
+|---------------------------------------------------|
+|                                                   |
+|                    OPERATORS                      |
+|                                                   |
+|----------|----------------------------------------|
+|    =     |        EQUAL                           |
+|----------|----------------------------------------|
+|    >     |        BIGGER THAN                     |
+|----------|----------------------------------------|
+|    <     |        LASS THAN                       |
+|----------|----------------------------------------|
+|    >=    |        BIGGER THAN OR EQUAL TO         |
+|----------|----------------------------------------|
+|    <=    |        LASS THAN OR EQUAL TO           |
+|----------|----------------------------------------|
+|    <>    |        DIFFERENT OF                    |
+|----------|----------------------------------------|
+|    AND   |                -                       |
+|----------|----------------------------------------|
+|    OR    |                -                       |
+|----------|----------------------------------------|
+|    NOT   |                -                       |
+|----------|----------------------------------------|
+|    IS    |   BOOL VALUES: TRUE, FALSE, NULL       |
+|----------|----------------------------------------|
+
+https://popsql.com/learn-sql/mysql/how-to-query-date-and-time-in-mysql
+
+
+SELECT *
+FROM events
+WHERE event_date BETWEEN date_sub(now(), interval 1 week) AND date_add(now(), interval 3 day);
+
+SELECT year(now()); -- or month(), day(), hour(), minute(), second()
+
+
+-- This will assume time to be 12am
+SELECT unix_timestamp('2018-12-09');
+
+-- You can specify an exact timestamp to be converted down to the second
+SELECT unix_timestamp('2018-12-09 14:53:21');
+
+-- calling unix_timestamp without a parameter will be like calling it for current timestamp
+SELECT unix_timestamp(); -- same as SELECT unix_timestamp(now());
+
+-- show seconds between delivery and shipping timestamps
+SELECT unix_timestamp(delivered_at) - unix_timestamp(shipped_at);
+FROM deliveries;
+
+-- convert computed difference to hh:mm:ss format:
+SELECT sec_to_time(unix_timestamp(delivered_at) - unix_timestamp(shipped_at))
+FROM deliveries;

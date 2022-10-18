@@ -62,3 +62,5 @@ QUERIES:
 DISTINCT
 
 COUNT - Does not count maybe null field.
+
+Find FOREIGN KEY of a table: https://www.delftstack.com/howto/mysql/mysql-show-foreign-keys/
