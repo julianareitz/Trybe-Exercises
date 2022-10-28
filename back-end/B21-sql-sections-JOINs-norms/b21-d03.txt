@@ -1,0 +1,142 @@
+ENTITY
+
+Real world representations stored as tables inside of a DB.
+-- Pratice
+(1) artist
+(2) album
+(3) collection of albuns or musics
+(4) Music style
+(5) song
+-- End od Pratice
+ATTRIBUITS
+
+Used to discribe something.
+-- Pratice
+Álbum: `album_id`, `titulo`, `preco`, `estilo_id` e `artista_id`;
+Artista: `artista_id` e `nome`;
+Estilo Musical: `estilo_id` e `nome`;
+Canção: `cancao_id`, `nome` e `album_id`.
+-- End od Pratice
+
+
+MY SQL RELATIONSHIPS
+
+1 : 1 ONE BY ONE
+One line at table A matches only with one line at table B.
+
+One-to-Many or Many-to-One Relationship (1..N)
+Can be many matches between related tables.
+
+Many to Many Relationship (N..N):
+When there is many related lines between more than two tables.
+-- Pratice
+Os relacionamentos identificados foram:
+Um artista pode possuir um ou mais álbuns;
+Um estilo musical pode estar contido em um ou mais álbuns;
+Um álbum pode possuir uma ou mais canções.
+-- End of Pratice
+
+
+BUILDING DIAGRAMS
+
+To build a diagram you need to understand how your data are related and when and what entities you use to relate data.
+You have to include in your diagram your primary and foreingh keys.
+
+-- Cria um banco de dados com o nome especificado.
+CREATE DATABASE nome_do_banco_de_dados;
+
+-- Sinônimo de CREATE DATABASE, também cria um banco de dados.
+CREATE SCHEMA nome_do_banco_de_dados;
+
+-- Verifica se o banco de dados ainda não existe.
+-- Essa verificação é comumente utilizada junto ao CREATE DATABASE para evitar
+-- a tentativa de criar um banco de dados duplicado, o que ocasionaria um erro.
+IF NOT EXISTS nome_do_banco_de_dados;
+
+-- Lista todos os bancos de dados existentes.
+SHOW DATABASES;
+
+-- Define o banco de dados ativo para uso no momento.
+USE nome_do_banco_de_dados;
+
+
+
+~docker cp arquivo.extensão mentorias-estruturadas_db_1:/caminho
+~docker exect -it nome_do_banco_de_dados bash
+~ls (ver se o arquivo está aqui)
+
+para restaurar o banco de dados
+~mysql -u root -p < dump.sql (como se estivesse jogando o dump pro sql)~
+~show databases
+~use trybecity (ver o banco)
+~show tables
+
+
+NORMALIZATION
+
+Used to minimize or eliminate redundancy and side effectin in db updates.
+
+
+FONT: https://www.geeksforgeeks.org/first-normal-form-1nf/
+
+(1NF) First Normal Form 
+
+    - There are only Single Valued Attributes.
+    - Attribute Domain does not change.
+    - There is a unique name for every Attribute/Column.
+    - The order in which data is stored does not matter.
+        -------------------------------------------
+        .                  NOT 1NF - WRONG        .
+        .             ID   Name   Courses         .
+        .             -------------------         .
+        .              1    A      c1, c2         .
+        .              2    E      c3             .
+        .              3    M      C2, c3         .
+        -------------------------------------------
+
+        -------------------------------------------
+        .                  AT 1NF                 .
+        .             ID   Name   Course          .
+        .             -------------------         .
+        .              1    A      c1             .
+        .              1    A      c2             .
+        .              2    E      c3             .
+        .              3    M      c2             .
+        .              3    M      c3             .
+        -------------------------------------------
+
+(2NF) Second Normal Form
+    - Be in the 1NF
+    - No partial dependency
+        ------------------------------------------------------                                  
+        .                 NOT 2NF - WRONG                    .
+        .           STUD_NO   COURSE_NO   COURSE_FEE         .
+        .           --------------------------------         .
+        .               1       C1           1000            .
+        .               2       C2           1500            .
+        .               1       C4           2000            .
+        .               4       C1           1000            .
+        .               4       C3           1000            .
+        .               1       C1           1000            .
+        .               1       C5           2000            .
+        ------------------------------------------------------
+        ------------------------------------------------------                                  
+        .                       AT 2NF                       .
+        .  |---------------------|  |---------------------|  .  
+        .  |        table 1      |  |       table 2       |  .
+        .  |---------|-----------|  |----------|----------|  .
+        .  | STUD_NO | COURSE_NO |  |COURSE_NO |COURSE_FEE|  .
+        .  |---------|-----------|  |----------|----------|  .
+        .  |    1    |    C1     |  |   C1     |    1000  |  .
+        .  |    2    |    C2     |  |   C2     |    1500  |  .
+        .  |    1    |    C4     |  |   C3     |    1000  |  .
+        .  |    4    |    C3     |  |   C4     |    2000  |  .
+        .  |    4    |    C1     |  |   C5     |    2000  |  .
+        .  |---------------------|  |---------------------|  .  
+        .  
+        ------------------------------------------------------
+
+(3NF) Third Normal Form 
+(BCNF) Boyce-Codd Normal Form
+(4NF) Fourth Normal Form
+(5NF) Fifth Normal Form

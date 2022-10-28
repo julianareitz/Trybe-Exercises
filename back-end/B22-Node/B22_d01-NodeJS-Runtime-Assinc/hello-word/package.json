@@ -1,0 +1,20 @@
+{
+  "name": "hello-word",
+  "version": "1.0.0",
+  "description": "1st nodejs script",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "keywords": [
+    "nodejs",
+    "helloword",
+    "1stnodejsscript"
+  ],
+  "author": "juliana-reitz",
+  "license": "ISC",
+  "dependencies": {
+    "readline-sync": "^1.4.10"
+  }
+}

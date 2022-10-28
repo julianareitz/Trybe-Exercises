@@ -1,0 +1,241 @@
+                   *****************************
+                   *                           *
+                   *         Node JS           *
+                   *     Runtime Assinc        *
+                   *                           *
+                   *****************************
+
+
+Node module is a piece of code, wrote em js, with it own scope and can be organized in one or multiple files.
+
+|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+||                                                                   ||
+||      Modules System supported by NodeJS:                          ||  
+||   () ECMA Script Module: browsers and some frontend frameworks    ||
+||   () CommonJS Module: 1st NodeJS module                           ||
+||                                                                   ||
+|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+
+            ||||||||||||||||||||||||||||||||||||||||||
+            ||                                      ||
+            ||     Types of NodeJS modules:         ||
+            ||      (*) Core modules                ||
+            ||      (*) Local modules               ||
+            ||      (*) Third-party modules         ||
+            ||                                      ||
+            ||||||||||||||||||||||||||||||||||||||||||
+
+|-----------------------------------------------------------------------|
+|                            Core Modules                               |
+|-----------------------------------------------------------------------|
+|         * NodeJS included and downloaded with runtime.                |
+|                                                                       |
+|  Some core modules:                                                   |
+|    () fs: provides an API to interact with file system.               |
+|    () url: provides utilities to read and manipulate URLs.            |
+|    () util: provides tools and functions for programmers.             |
+|    () os: provides tools and functions related OS.                    |
+|                                                                       |
+|-----------------------------------------------------------------------|
+
+
+|-----------------------------------------------------------------------|
+|                            Local Modules                              |
+|-----------------------------------------------------------------------|
+|                                                                       |
+|     () Defined with our application.                                  |
+|     () Every functionality/part of separeted by different files.      |
+|     () Can be published at NPM to download and use.                   |
+|                                                                       |
+|-----------------------------------------------------------------------|
+   
+
+|-----------------------------------------------------------------------|
+|                       Third-party modules                             |
+|-----------------------------------------------------------------------|
+|                                                                       |
+|     () Published Local Modules to download at NPM.                    |
+|     () AKA Node Library at npmjs.com                                  |
+|                                                                       |
+|-----------------------------------------------------------------------|
+
+
+
+
+
+_________________________________________________________________________
+|                                                                       |
+|                        Modules Export                                 |
+|_______________________________________________________________________|
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
++                     EXPORTING ONLY VARIABLES                         +
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
++                                                                      +
++     // brlValue.js                                                   +
++     >const brl = 5.37;                                               +
++     >const usdToBrl = (valueInUsd) => valueInUsd * brl;              +
++     >module.exports =  usdToBrl;                                     +
++                                                                      +
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
++                                                                      +
++     // index.js                                                      +
++     // you can name the func as you whant                            +
++     >const convert = require('./brlValue');                          +
++     >const usd = 10;                                                 +
++     >const brl = convert(usd);                                       +
++                                                                      +
++     >console.log(brl) // 53.7                                        +
++                                                                      +
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
++               EXPORTING VARIABLES AND FUNCTIONS                      +
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
++                                                                      +
++     // brlValue.js                                                   +
++     >const brl = 5.37;                                               +
++                                                                      +
++     >const usdToBrl = (valueInUsd) => valueInUsd * brl;              +
++                                                                      +
++     module.exports = {                                               +
++       brl,                                                           +
++       usdToBrl,                                                      +
++     };                                                               +
++                                                                      +
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
++                                                                      +
++     // index.js                                                      +
++     >const brlValue = require('./brlValue');                         +
++                                                                      +
++     >console.log(brlValue);                                          +
++     // { brl: 5.37, usdToBrl: [Function: usdToBrl] }                 + 
++                                                                      +
++     >console.log(`Valor do dólar: ${brlValue.brl}`);                 +
++     // Valor do dólar: 5.37                                          +
++                                                                      +
++     >console.log(`10 dólares em reais: ${brlValue.usdToBrl(10)}`);   +
++     // 10 dólares em reais: 53.7                                     +
++                                                                      +
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
++                                                                      +
++               DESTRUCTURING THE OBJECT at index.js                   +
++                                                                      +
++     >const { brl, usdToBrl } = require('./brlValue');                +
++                                                                      +
++     >console.log(`Valor do dólar: ${brl}`);                          +
++     // Valor do dólar: 5.37                                          +
++                                                                      +
++     >console.log(`10 dólares em reais: ${usdToBrl(10)}`);            +
++     // 10 dólares em reais: 53.7                                     +
++                                                                      +
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+
+
+
+_________________________________________________________________________
+|                                                                       |
+|                        Modules Import                                 |
+|_______________________________________________________________________|
+
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
++                                                                      +
++                 Require in Local Module Import                       +
++                                                                      +
++   () Dont need to especify .js or .json at local import              +
++   () Can inport the hole file                                        +
++                                                                      +
++     // meuModulo/funcionalidade-1.js                                 +
++                                                                      +
++     >module.exports = function ()                                    +
++       console.log('funcionalidade1');                                +
++     }                                                                +
++                                                                      +
++     // meuModulo/funcionalidade-2.js                                 +
++                                                                      +
++     >module.exports = function () {                                  +
++       console.log('funcionalidade2');                                +
++     }                                                                +
++                                                                      +
++     // meuModulo/index.js                                            +
++     >const funcionalidade1 = require('./funcionalidade-1');          +
++     >const funcionalidade2 = require('./funcionalidade-2');          +
++                                                                      +
++     >module.exports = { funcionalidade1, funcionalidade2 };          +
++                                                                      +
++     // minha-aplicacao/index.js                                      +
++                                                                      +
++     >const meuModulo = require('./meuModulo');                       +
++                                                                      +
++     >console.log(meuModulo);                                         +
++     // { funcionalidade1: [Function: funcionalidade1],               +
++          funcionalidade2: [Function: funcionalidade2] }              +
++                                                                      +
++     >meuModulo.funcionalidade1();                                    +
++                                                                      +
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
++                                                                      +
++                 Require in Core Module Import                        +
++                                                                      +
+
+
+
+
+npm CLI 
+
+https://github.com/tryber/Trybe-CheatSheets/blob/master/backend/nodejs/npm/README.md
+
+>npm init
+>npm run
+>npm start
+>npm install
+
+|------------------|------------------|------------------------|
+|  fs.readFileSync |   fs.readFile    | fs.promisses.readFile  |
+|------------------|------------------|------------------------|
+| X sync           |  (.) async       |   (.) async            |
+| X worst perf     |  (.) bether perf |   (X) BEST PERF        |
+| X no ()=> ()     |  (.) ()=> ()     |   (.) ()=> ()          |
+| X no promise     |  (.) promisse    |   (X) async/await      |
+|                  |                  |   (X) then/catch       |
+|------------------|------------------|------------------------|
+
+
+const fs = require('fs').promises;
+
+async function main() {
+  try {
+    const data = await fs.readFile('./meu-arquivo.txt', 'utf-8');
+    console.log(data);
+  } catch (err) {
+    console.error(`Erro ao ler o arquivo: ${err.message}`);
+  }
+}
+
+main()
+
+------------------------------------------------------------------
+
+const fs = require('fs').promises;
+
+async function main() {
+  try {
+    await fs.writeFile('./meu-arquivo.txt', 'Meu textão');
+    console.log('Arquivo escrito com sucesso!');
+  } catch (err) {
+    console.error(`Erro ao escrever o arquivo: ${err.message}`);
+  }
+}
+
+main()
+
+------------------------------------------------------------------
