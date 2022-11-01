@@ -1,9 +1,0 @@
-Web Applications
-APIs
-Performance
-Frameworks
-
-no http://expressjs.com/
-
-na raiz do projeto ficam arquivos de configuração como: .gitignore, .eslintrc.json, package.json, docker-compose.yml e outros;
-o código da aplicação fica em diretórios como: src, app, ou similar.
