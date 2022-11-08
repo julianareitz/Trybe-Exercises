@@ -1,0 +1,80 @@
+              *****************************
+              *                           *
+              *   Software Architecture   *
+              *                           *
+              *****************************
+
++-----------------------------------------------------+
+|                                                     |
+|     Definition: Delivery value to customers.        |
+|                                                     |
++-----------------------------------------------------+
+
++-----------------------------------------------------+
+|                                                     |
+|                       ABOUT                         |
+|                   * Reliability                     |
+|                   * Functionality                   |
+|                   * Moulation                       |
+|                   * Performance                     |
+|                   * Safety                          |
+|                                                     |
++-----------------------------------------------------+
+
++-----------------------------------------------------+
+|                                                     |
+|                 RESPONSABLE FOR                     |
+|          * Application Controller                   |
+|          * Comunication protocols                   |
+|          * Data sync and access                     |
+|          * Functionality assignment to components   |
+|          * Design planning elements                 |
+|          * Scalability and performance              |
+|          * Quality                                  |
+|                                                     |
++-----------------------------------------------------+
+
+
+In applications:
++-----------------------------------------------------+
+|                                                     |
+|                  Some types of SA:                  |
+|           * Layer                                   |
+|           * Client-Server                           |
+|           * Model-View-Controller(MVC)              |
+|           * Microservides                           |
+|           * Pipe-and-Filter(PF)                     |
+|           * Peer-to-Peer(P2P)                       |
+|           * Service-oriented Architecture(SOA)      |
+|           * Publish-Subscribe(Pub/Sub)              |
+|                                                     |
++-----------------------------------------------------+
+
++-----------------------------------------------------+
+|     Process of SA:                                  |
+|     (1) Definition;                                 |
+|     (2) Components Identification;                  |
+|     (3) Describes components and connectors;        |
+|     (4) SA Design evaluation;                       |
+|     (5) SA Design remodeling.                       |
++-----------------------------------------------------+
+
+
+Reference author:
+DIJIKSTRA, Edsger. Article from 1968.
+
++-----------------------------------------------------+
+|                                                     |
+|                     TRYBE:                          |
+|                                                     |
+|                   <> Model                          |
+|                   <> Service                        |
+|                   <> Controller                     |
+|                                                     |
++-----------------------------------------------------+
+
+<> Model: have the code to data access db or file system. 
+
+<> Service: validate the business rules of an application.
+
+<> Controller: validate values from API-Client like JSON and HTTP requisition.
