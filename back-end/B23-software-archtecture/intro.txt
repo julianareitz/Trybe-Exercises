@@ -61,4 +61,20 @@ In applications:
 
 
 Reference author:
-Edsger Dijikstra
+DIJIKSTRA, Edsger. Article from 1968.
+
++-----------------------------------------------------+
+|                                                     |
+|                     TRYBE:                          |
+|                                                     |
+|                   <> Model                          |
+|                   <> Service                        |
+|                   <> Controller                     |
+|                                                     |
++-----------------------------------------------------+
+
+<> Model: have the code to data access db or file system. 
+
+<> Service: validate the business rules of an application.
+
+<> Controller: validate values from API-Client like JSON and HTTP requisition.
