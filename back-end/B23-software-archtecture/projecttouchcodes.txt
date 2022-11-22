@@ -1,0 +1,105 @@
+git clone
+git checkout juliana-reitz-store-manager
+
+killall node
+docker container ls -a || docker-compose down
+docker system prune -af
+docker-compose up -d
+docker exec -it store_manager bash
+docker compose run node npm tests || docker exec -it store_manager bash
+
+npm install
+
+
+FAZER TESTE CONFORME PAGINA 5 DO README
+debugando: ctrl + shift + d || na pasta .vccode
+
+TESTES UNITÁRIOS
+npm test || npm test req02
+
+endpoints no padrão REST
+alterar conexão db
+
+ALTERANDO O .env.example
+altere para .env
+MYSQL_HOST=localhost
+MYSQL_USER=root
+MYSQL_PASSWORD=password
+MYSQL_DATABASE=StoreManager
+PORT=3000
+HOST=localhost
+
+CRIANDO DIRETÓRIOS
+CAMADA MSC
+-- já criados -- mkdir src src/controllers src/middlewares src/models src/services 
+-- criar os abaixo --
+src/utils src/tests src/router src/helpers
+
+CAMADA DE TESTES UNITÁRIOS
+mkdir src/tests/unit src/tests/unit/models src/tests/unit/services src/tests/unit/controllers tests/unit/middlewares
+
+CAMADA DE TESTES DE INTEGRAÇÃO
+mkdir src/tests/integration src/tests/integration/mocks
+
+ARQUIVOS DA PASTA models
+touch src/models/connection.js
+
+
+
+SCRIPT SQL
+
+DROP DATABASE IF EXISTS store_manager.store_manager;
+CREATE DATABASE store_manager.store_manager;
+
+DROP TABLE IF EXISTS store_manager.products;
+DROP TABLE IF EXISTS store_manager.sales;
+
+CREATE TABLE IF NOT EXISTS store_manager.products (
+  id UNIQUE,
+  name VARCHAR(100) NOT NULL (name > 5),
+  quantity INTEGER NOT NULL,
+  PRIMARY KEY (id)
+);
+
+CREATE TABLE IF NOT EXISTS store_manager.itensSold (
+  id,
+  quantity
+);
+
+CREATE TABLE IF NOT EXISTS store_manager.sales (
+  id ,
+  itensSold,
+  PRIMARY KEY (id),
+  FOREIGN KEY (itensSold)
+    REFERENCES itensSold(id, quantity)
+    ON DELETE CASCADE
+    ON PUDATE CASCADE
+);
+
+-- REQUISITO 1
+//server.js
+const app = require('./app');
+
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, console.log(`RUN SERVER ${PORT}`));
+
+
+// products.model.js
+
+const camelize = require('camelize');
+const connection = require('./connection');
+
+const findById = async (_id, name, quantity) => {
+  const [[result]] = await connection.execute(
+    'SELECT * FROM products WHERE id = ?',
+    [_id],
+    [name],
+    [quantity]
+  );
+  return camelize(result);
+};
+
+module.exports = {
+  findById,
+};
