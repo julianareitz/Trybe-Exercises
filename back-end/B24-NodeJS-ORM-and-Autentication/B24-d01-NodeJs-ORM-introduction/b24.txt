@@ -1,0 +1,215 @@
+ORM - Object-Relational Mapping
+
+Use JS to interact with db, no MySQL need.
+
+Node.js use Sequelize to interact with app db like PostgreSQL, MariaDB, MySQL, SQLite e Microsoft SQL Server.
+
+ORM Patterns
+
+() Data Mapper Middleware between entity and db.
+
+() Active Record Model layer directly connect with db with queries.
+
+Boillerplate code - some piece of code that you'll have to write over and over again in different codes.
+
+httpspt.wikipedia.orgwikiBoilerplate_code
+
+
+INSTALLING Sequelize
+
+mkdir app-with-sequelize && cd app-with-sequelize
+npm init -y
+npm install sequelize
+
+
+INSTALLING CLI and MySQL
+
+npm install -D sequelize-cli
+npm install mysql2
+mkdir src
+cd src
+npx sequelize-cli init
+
+
+npm install dotenv
+changes and clear config.json TO config.js with enviroment default content like
+
+ srcconfigconfig.js
+
+require('dotenv').config();
+
+const config = {
+  username process.env.MYSQL_USER,
+  password process.env.MYSQL_PASSWORD,
+  database process.env.MYSQL_DATABASE,
+  host process.env.MYSQL_HOST,
+  dialect 'mysql',
+};
+
+module.exports = {
+  development config,
+  test config,
+  production config,
+};
+
+
+docker container run --name orm_example -e MYSQL_ROOT_PASSWORD=password -d -p 33063306 mysql8.0.29
+
+touch .sequelizerc
+
+
+
+
+CALLING sequelize
+
+sequelize.define(modelName, attributes, options)
+
+OR
+
+model.extends with class init(attributes, options)
+
+
+EXAMPLE User Model layer
+
+ srcmodelsuser.model.js
+
+const UserModel = (sequelize, DataTypes) = {
+  const User = sequelize.define('User', {
+    fullName DataTypes.STRING,
+    email DataTypes.STRING,
+  });
+
+  return User;
+};
+
+module.exports = UserModel;
+ Sequelize creates a table with model layer name in plural.
+
+
+
+ srcmodelsuser.model.js
+sequelize.define('User', {
+   ... (attributes)
+}, {
+  tableName 'Employees'
+  This line above name the table if you don't whanna default name creation or use some other table.
+});
+
+
+
+ Defining global name behavior db with sequelizer
+
+sequelize.define('User', {
+   ... (attributes)
+}, {
+  freezeTableName true
+});
+
+
+
+ stop global behavior
+
+const sequelize = new Sequelize('sqlitememory', {
+  define {
+    freezeTableName true
+  }
+});
+
+
+
+
+   Model layer      Database
+                 
+   singularName   Plural_name
+
+
+
+
+MODEL DOC GENERATION INLINE COMMAND (DONT USE A COURSE)
+npx sequelize modelgenerate --name User.model --attributes fullNamestring
+
+
+
+
+MIGRATIONS (UPDOWN)
+
+
+() Generating migration structure
+npx sequelize migrationgenerate --name create-user
+
+() db migration inline code
+  after MIGRATION FILE criation.
+npx sequelize dbmigrate
+
+() UNDO db migration inline code
+npx sequelize dbmigrateundo
+
+
+
+------------------------------------------------------
+() queryInterface LIKE MySQL ALTER TALBE
+    it adds columns and columns structure like type, default value, and others. 
+npx sequelize migrationgenerate --name add-column-phone-table-users
+
+[timestamp]-add-column-phone-table-users.js
+
+ srcmigrations[timestamp]-add-column-phone-table-users.js
+
+'use strict';
+
+module.exports = {
+  up async (queryInterface, Sequelize) = {
+   await queryInterface.addColumn('Users', 'phoneNum', {
+     type Sequelize.STRING,
+   });
+  },
+
+  down async (queryInterface, Sequelize) = {
+    await queryInterface.removeColumn('Users', 'phoneNum');
+  }
+};
+
+ npx sequelize dbmigrate
+
+alter user.model file adding phoneNum
+ srcmodelsuser.model.js
+
+ const User = (sequelize, DataTypes) = {
+   const User = sequelize.define('User', {
+     fullName DataTypes.STRING,
+      ...
+       phoneNum DataTypes.STRING,
+   });
+      ...
+ module.exports = User;
+-------------------------------------------------------
+
+
+
+docker compose up -d
+docker attach containerName
+
+verify package.json to verify wich dependencies you need to install. Here some of them
+
+npm install express express-async-errors
+npm sequelize dotenv mysql2
+npm i -D nodemon sequelize-cli
+npm sequelize --help to see all commands
+npx sequelize-cli init
+
+after config.js and enviroment config
+npm sequelize dbcreate
+
+npm sequelize modelgenerate ---name course --atributes namestring,descriptionstring,creation_datedate,activeboolean --underscored (camelize to underscored)
+
+refactor models class to function 
+  sequelize.define('ModelName')
+
+
+MIGRATIONS creates table, not MODELS
+
+npx sequelize dbmigrate
+
+UNDO last migration
+npx sequelize dbmigrateundo
+npx sequelize dbmigrateundoall (dops all content by migrations)
